@@ -11,3 +11,11 @@ Currently, two official plugins are available:
 ```
 npm create vite@latest spa-1tdspv -- --template react
 ```
+
+### Deploy application
+#### Install vercel
+```
+npm i -g vercel
+
+vercel
+```
