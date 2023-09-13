@@ -1,20 +1,17 @@
-import Content from './components/Content'
-import Navbar from './components/Navbar'
+import Cabecalho from "./components/Cabecalho";
+import Rodape from "./components/Rodape";
+import { Outlet } from "react-router-dom";
 
-import reactLogo from './assets/react.svg'
-import Footer from './components/Footer';
-
-
-const App = () => {
-  let reactLogoTextoAlt = "Logo do React";
-
+export default function App() {
+  //Área declarativa
+  let viteLogoAlt = "Vite Logo";
   return (
     <>
-      <Navbar/>
-      <Content logo={reactLogo} alt={reactLogoTextoAlt}/>
-      <Footer />
-    </>
-  )
-}
+      {/* Área imperativa */}
 
-export default App
+      <Cabecalho />
+        <Outlet/>
+      <Rodape />
+    </>
+  );
+}

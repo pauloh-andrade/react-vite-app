@@ -1,30 +1,32 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
 
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+//BLOCO DE ROTAS
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './routes/Home.jsx';
+import Produtos from './routes/Produtos.jsx';
+import Erro from './routes/Erro.jsx';
+import EditarProdutos from './routes/EditarProdutos.jsx';
+import ExcluirProdutos from './routes/ExcluirProdutos.jsx';
 
-import './index.css'
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-import Home from './pages/Home.jsx'
-import Product from './pages/Product.jsx'
-import NotFound from './pages/NotFound.jsx'
-import UpdateProduct from './pages/UpdateProduct.jsx'
-
-const router = createBrowserRouter([{
-  path: "/",
-  element: <App />,
-  errorElement: <NotFound />,
-  children: [
-    { path: "/", element: <Home /> },
-    { path: "/produtos", element: <Product /> },
-    { path: "/produtos/editar/:id", element: <UpdateProduct /> }
+const router = createBrowserRouter(
+  [
+    {path : "/", element : <App/>, errorElement : <Erro/>,
+    
+    children:[
+      {path : "/" , element : <Home/>},
+      {path : "/produtos" , element : <Produtos/>},
+      {path : "/editar/produtos/:id" , element : <EditarProdutos/>},
+      {path : "/excluir/produtos/:id" , element : <ExcluirProdutos/>},
+    ]}
   ]
-}])
+);
+
+//BLOCO DE ROTAS
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}> </RouterProvider>
+    <RouterProvider router={router}/>
   </React.StrictMode>,
 )
